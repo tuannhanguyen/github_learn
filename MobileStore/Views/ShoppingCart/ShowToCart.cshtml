@@ -1,0 +1,59 @@
+﻿@model MobileStore.Models.Cart_
+
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@if(Model!=null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="font-size: 25px">Product Name </th>
+                <th style="font-size: 25px">Image</th>
+                <th style="font-size: 25px">Price</th>
+                <th style="font-size: 25px">Quantity</th>
+                <th style="font-size: 25px">Sum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.Items) 
+            {
+                double total = Convert.ToDouble(item._shopping_product.Price.Value * item._shopping_quantity);
+                <tr style="font-size:25px; color: black">
+                    <td >
+                        @Html.DisplayFor(model=>item._shopping_product.Name)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item._shopping_product.Image)" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model=>item._shopping_product.Price)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Update_Quantity_Cart", "ShoppingCart"))
+                        {
+                            <input type="hidden" value="@item._shopping_product.ProductID" name="ID_Product" />
+                            <input type="number" value="@item._shopping_quantity" name="quantity" style="font-size: 25px" />
+                            <input type="submit" value="Cập nhật số lượng" style="font-size: 25px"/>
+                        }
+                    </td>
+                    <td style="font-size:25px">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Total: @total
+                    </td>
+                    <td>
+                        <a href="/ShoppingCart/RemoveCart/@item._shopping_product.ProductID" style="font-size: 25px;color: red">&nbsp; &nbsp;&nbsp;Xóa khỏi giỏ hàng</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align: right; font-size: 25px"><br />Tổng tiền giỏ hàng: @Model.Total_Money()</td>
+            </tr>
+        </tfoot>
+    </table>
+    <a href="@Url.Action("Index", "Home_")"><h1 style="font-size: 25px; color: red">Về trang sản phẩm</h1></a>
+}

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<MobileStoreConnection.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="wrap">
+
+
+    <div class="content-grids">
+        <h4>Deals of the day</h4>
+        <div class="section group">
+            @foreach (var item in Model)
+            {
+                <div class="grid_1_of_4 images_1_of_4 products-info">
+                    <img src="~/Asset/images/@item.Image">
+                    <a href="single.html">@item.Name</a>
+                    <h3>@item.Price VND</h3>
+                    <ul>
+                        <li><a class="cart" href="single.html"> </a></li>
+                        <li><a class="i" href="single.html"> </a></li>
+                        <li><a class="Compar" href="single.html"> </a></li>
+                        <li><a class="Wishlist" href="single.html"> </a></li>
+                    </ul>
+                </div>
+
+            }
+            
+        </div>
+        <div class="section group">
+            @foreach (var item in Model)
+            {
+                <div class="grid_1_of_4 images_1_of_4 products-info">
+                    <img src="~/Asset/images/@item.Image">
+                    <a href="single.html">@item.Name</a>
+                    <h3>@item.Price VND</h3>
+                    <ul>
+                        <li><a class="cart" href="single.html"> </a></li>
+                        <li><a class="i" href="single.html"> </a></li>
+                        <li><a class="Compar" href="single.html"> </a></li>
+                        <li><a class="Wishlist" href="single.html"> </a></li>
+                    </ul>
+                </div>
+
+            }
+        </div>
+
+    </div>
+    <div class="content-sidebar">
+        <h4>Categories</h4>
+        <ul>
+            <li><a href="#">Accord Mobiles</a></li>
+            <li><a href="#">Ace Mobile</a></li>
+            <li><a href="#">Acer Mobile</a></li>
+            <li><a href="#">Airfone</a></li>
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Blackberry</a></li>
+            <li><a href="#">Byond Tech</a></li>
+            <li><a href="#">Celkon Mobiles</a></li>
+            <li><a href="#">Dell Mobile Phones </a></li>
+            <li><a href="#">Fly Mobile</a></li>
+            <li><a href="#">Fujezone Mobiles </a></li>
+            <li><a href="#">HTC</a></li>
+            <li><a href="#">LG Mobiles</a></li>
+            <li><a href="#">Longtel Mobile</a></li>
+            <li><a href="#">Maxx</a></li>
+            <li><a href="#">Micromax Mobiles </a></li>
+            <li><a href="#">Samsung Mobiles</a></li>
+            <li><a href="#">Sony Ericsson Mobiles</a></li>
+            <li><a href="#">Wynncom Mobiles</a></li>
+        </ul>
+    </div>
+</div>
+<div class="clear"> </div>
+    </div>
