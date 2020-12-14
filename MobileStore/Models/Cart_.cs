@@ -7,8 +7,8 @@ namespace MobileStore.Models
 {
     public class CartItem
     {
-        public Product _shopping_product { get; set; }
-        public int _shopping_quantity { get; set; }
+        public Product _shopping_product { get; set; } // get set
+        public int _shopping_quantity { get; set; } // get & set
     }
     public class Cart_
     {
